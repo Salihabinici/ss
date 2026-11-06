@@ -1,0 +1,194 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0D1117;
+    font-family: Arial, sans-serif;
+}
+.sol-yazi {
+    color: floralwhite;
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-family: "Eras Bold ITC";
+    max-width: 500px;
+    line-height: 1.5;
+}
+.header{
+    width: 100%;
+    background-color: #0D1117;
+    color: white;
+    text-align: center;
+    padding: 25px 10px;
+    font-family: "Goudy Old Style";
+}
+
+.kutu{
+    display: flex;
+    align-items:center;
+    gap:20px;
+}
+
+.kucuk-resim{
+    display: block;
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+
+}
+
+.klasik-yazi{
+    color: floralwhite;
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-family: "Eras Bold ITC";
+}
+
+.sag-kutu {
+    justify-content: flex-end; /* İçeriği (yazı ve resmi) en sağa yaslar */
+    margin-right: 20px;       /* Sayfanın en sağ kenarından biraz boşluk bırakır */
+}
+
+.galeri-resimler {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 15px; /* Yazı ile resimler arasına boşluk bırakır */
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+.galeri-yazi{
+    text-align:center;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.dondur-sag {
+    transform: rotate(90deg);
+}
+
+.dondur-sol {
+    transform: rotate(-90deg);
+    margin-left: 70px;
+}
+/* Polaroid çerçeveyi yatay yapmak için genişlik veririz, yükseklik otomatik uzar */
+.polaroid {
+    width: 250px; /* Çerçeve genişliği */
+    height: auto !important; /* Dikey uzamayı durdurur, içeriğe göre ayarlar */
+    background-color: white;
+    padding: 12px 12px 30px 12px; /* Yatay şerit/polaroid alt boşluğu */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+}
+
+/* Resimlerin hiç kırpılmadan TAM görünmesi için */
+.polaroid img {
+    width: 100% !important;
+    height: auto !important; /* Resmin orijinal en-boy oranını korur, kırpmaz */
+    object-fit: contain !important; /* Resmi hiç kesmeden tam sığdırır */
+    display: block;
+    border-radius: 2px;
+}
+
+
+.egik-fazla {
+    transform: rotate(-8deg); /* Sola 8 derece eğik */
+}
+
+/* YATAY BEYAZ ŞERİT (Çizimindeki çerçeve) */
+.photo-strip {
+    display: flex;
+    flex-direction: row;            /* Resimleri kesinlikle YAN YANA dizer */
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;      /* Çizimindeki beyaz uzun çerçeve */
+    padding: 12px;                  /* Şerit kenar boşluğu */
+    gap: 12px;                      /* Resimler arasındaki boşluk */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    width: fit-content;             /* Çerçevenin resimlere göre tam oturması için */
+    margin: 25px auto;              /* Sayfa ortasında kurgular */
+    transition: transform 0.3s ease;
+}
+
+/* ŞERİT İÇİNDEKİ KARE VE EŞİT RESİMLER */
+.photo-strip img {
+    width: 150px !important;        /* Resimlerin eşit genişliği */
+    height: 150px !important;       /* Resimlerin eşit yüksekliği (Kare görünüm) */
+    object-fit: cover !important;   /* Resimleri basmadan kareye oturtur */
+    border-radius: 3px;
+    display: block;
+}
+
+/* Şeridin bütününe verilen hafif eğiklikler */
+.egik-sol {
+    transform: rotate(-2deg);
+}
+
+.egik-sag {
+    transform: rotate(2deg);
+}
+
+/* Üzerine gelince düzleşmesi için */
+.photo-strip:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+/* Her bir resmin geçiş efektini yumuşatıyoruz */
+.photo-strip img {
+    transition: transform 0.3s ease, z-index 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Fareyle üzerine gelince el simgesi çıkar */
+    position: relative;
+}
+
+/* Fareyle tek bir fotoğrafın üzerine gelindiğinde veya tıklandığında */
+.photo-strip img:hover,
+.photo-strip img:active {
+    transform: scale(1.2); /* Fotoğrafı %20 büyütür */
+    z-index: 10;           /* Diğer komşu fotoğrafların önüne çıkarır */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Hafif gölge verir */
+    border-radius: 4px;
+}
+
+.kutu-kartlar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.kart-resim {
+    width: 170px;
+    height: 230px;
+    object-fit: cover;
+    border: 4px solid #ffffff;       /* İnce zarif beyaz çerçeve */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.kart-resim:hover {
+    transform: translateY(-10px) scale(1.05); /* Yukarı doğru hafifçe süzülür */
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2); /* İnce ışık efekti */
+}
+/* Odağı sola kaydırır, böylece solda duran kişiler görünür */
+.odak-sol {
+    object-position: left center !important;
+}
+
+/* Eğer sağ taraftaysanız odağı sağa kaydırır */
+.odak-sag {
+    object-position: right center !important;
+}
+
+.odak-tam {
+    object-fit: contain !important;
+}
